@@ -1,30 +1,40 @@
 import React from "react";
 
-class Tabs extends React.component {
-  constructor(props) {
+class Tabs extends React.Component {
+  constructor(props){
     super(props);
+
     this.state = {
       selected: 0
     };
+
+    this.selectTab = this.selectTab.bind(this);
+
   }
 
-  selectTab (index) {
-    this.setState({selected: index});
-    let selected = document.getElementsByClassName("tab")[index];
-    selected.style.fontWeight = 'bold';
+  selectTab(index){
+    return () => {
+      this.setState({selected: index});
+      let selected = document.getElementsByClassName("tab")[index];
+      let everything = document.getElementsByClassName('tab');
+      console.log(everything);
+      for (var i = 0; i < everything.length; i++) {
+        everything[i].style.fontWeight = 'normal';
+      }
+      selected.style.fontWeight = 'bold';
+    };
   }
 
-  render() {
+  render(){
     let selectedTab = this.props.tabs[this.state.selected];
     return (
-      <ul class = "tabs">
+      <ul className = "tabs">
         {this.props.tabs.map( (tab, index) =>
           <li>
-            <h1 onClick = {this.selectTab(index)}
-            class = "tab">{tab.title}</h1>
+            <h1 onClick = {this.selectTab(index)} className = "tab">{tab.title}</h1>
           </li>)
         }
-        <article class = 'tab-article'>{selectedTab.content}</article>
+        <article className = 'tab-article'>{selectedTab.content}</article>
       </ul>
 
     );

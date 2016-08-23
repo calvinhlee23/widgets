@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Widgets from './tabs';
+import Dummy from './dummy';
 
-const tabs = {
-  one: {
-    title: "one",
+const tabs = [
+  { title: "one",
     content: "this is content of one"
   },
 
-  two: {
+  {
     title: "two",
     content: "second content"
   }
-};
+];
 
 document.addEventListener("DOMContentLoaded", () => {
+  console.log('hi');
   const root = document.getElementById("root");
-  ReactDOM.render(<Widgets/>, root);
+  ReactDOM.render(<Widgets tabs= {tabs}/>, root);
 });
