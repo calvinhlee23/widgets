@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Widgets from './tabs';
-import Dummy from './dummy';
 
+
+import Tabs from './tabs';
+import Clock from './clock';
 const tabs = [
   { title: "one",
     content: "this is content of one"
@@ -11,11 +12,18 @@ const tabs = [
   {
     title: "two",
     content: "second content"
+  },
+
+  {
+    title: "three",
+    content: "third content yay!"
   }
 ];
 
+function success (pos) {
+  console.log(pos);
+}
 document.addEventListener("DOMContentLoaded", () => {
-  console.log('hi');
   const root = document.getElementById("root");
-  ReactDOM.render(<Widgets tabs= {tabs}/>, root);
+  ReactDOM.render(<Clock/>, root);
 });
