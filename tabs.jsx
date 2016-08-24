@@ -17,7 +17,6 @@ class Tabs extends React.Component {
       this.setState({selected: index});
       let selected = document.getElementsByClassName("tab")[index];
       let everything = document.getElementsByClassName('tab');
-      console.log(everything);
       for (var i = 0; i < everything.length; i++) {
         everything[i].style.fontWeight = 'normal';
       }
@@ -45,7 +44,5 @@ class Tabs extends React.Component {
     );
   }
 }
-
-
 
 export default Tabs;
