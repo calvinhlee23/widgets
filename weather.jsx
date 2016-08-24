@@ -32,7 +32,7 @@ class Weather extends React.Component {
             const data = JSON.parse(request.responseText);
             this.setState({location: data.name, temp:data.main.temp});
             // this.setState({temp: data.main.temp});
-          } 
+          }
         };
         request.open('GET', url, true);
         request.send();
@@ -56,7 +56,7 @@ class Weather extends React.Component {
     }
     else {
       return (
-        <div className = 'Weather'>
+        <div className = 'weather'>
         <h1 className = 'title'>Weather</h1>
         <a className = "weather-temp">
         Temperature: {Math.floor((this.state.temp- 273.15) * 1.8 + 32)} F</a>

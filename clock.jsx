@@ -33,9 +33,9 @@ class Clock extends React.Component {
     var time = this.state.clockTime;
     var date = this.state.date;
     return (
-      <div>
+      <div className = "clock">
         <h1 className = "title">Clock</h1>
-        <ul className = "clock">
+        <ul >
           <li className = "clock-time">Time: {time}</li>
           <li className = "clock-date">Date: {date}</li>
         </ul>

@@ -27,10 +27,10 @@ class Tabs extends React.Component {
   render(){
     let selectedTab = this.props.tabs[this.state.selected];
     return (
-      <div>
+      <div className = "tabs">
         <h1 className = "title">Tabs</h1>
         <div className = "cf">
-          <ul className = "tabs">
+          <ul>
             {this.props.tabs.map( (tab, index) =>
               <li key = {index} className = "tabs-li">
                 <h5 onClick = {this.selectTab(index)}

@@ -39,3 +39,15 @@ h1 {
   display: block;
   clear: both;
 }
+
+.clock {
+  background-color: darkseagreen;
+}
+
+.weather {
+  background-color: cadetblue;
+}
+
+.tabs {
+  background-color: antiquewhite;
+}
