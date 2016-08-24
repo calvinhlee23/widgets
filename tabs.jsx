@@ -30,15 +30,17 @@ class Tabs extends React.Component {
     return (
       <div>
         <h1 className = "title">Tabs</h1>
-        <ul className = "tabs">
-          {this.props.tabs.map( (tab, index) =>
-            <li>
-              <h1 onClick = {this.selectTab(index)}
-                    className = "tab">{tab.title}</h1>
-            </li>)
-          }
-          <article className = 'tab-article'>{selectedTab.content}</article>
-        </ul>
+        <div className = "cf">
+          <ul className = "tabs">
+            {this.props.tabs.map( (tab, index) =>
+              <li key = {index} className = "tabs-li">
+                <h5 onClick = {this.selectTab(index)}
+                      className = "tab">{tab.title}</h5>
+              </li>)
+            }
+          </ul>
+        </div>
+        <article className = 'tab-article'>{selectedTab.content}</article>
       </div>
     );
   }

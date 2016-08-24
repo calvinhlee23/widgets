@@ -26,16 +26,16 @@ class Weather extends React.Component {
     url += `&&APPID=645c5d39c7603f17e23fcaffcea1a3c1`;
 
     var request = new XMLHttpRequest();
-    request.open('GET', url, true);
-
-
     request.onreadystatechange = () => {
       if (request.status === 200 && request.readyState === XMLHttpRequest.DONE) {
         const data = JSON.parse(request.responseText);
         this.setState({location: data.name});
         this.setState({temp: (data.main.temp- 273.15) * 1.8 + 32});
+      }else {
+        console.log('request failed');
       }
     };
+    request.open('GET', url, true);
     request.send();
 
   }
@@ -46,11 +46,15 @@ class Weather extends React.Component {
 
 
   render () {
-    if (this.location) {
-      return (<a>getting info</a>);
+    if (this.location === undefined) {
+      return (
+        <div className = 'Weather'>
+          <h1 className = 'title'>Weather</h1>
+          <a>getting info...</a>
+        </div>
+      );
     }
     else {
-
       return (
         <div className = 'Weather'>
         <h1 className = 'title'>Weather</h1>
